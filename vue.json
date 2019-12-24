@@ -16,19 +16,47 @@
     "prefix": "scaffold",
     "body": [
       "<template>",
-      "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\"></div>",
-      "</template>",
-      "<script>",
+      "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
+      "    <p>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</p>",
+      "  </div>",
+      "</template>\n",
+      "<script lang=\"ts\">",
       "import { Vue, Component, Prop, Watch } from \"vue-property-decorator\";",
       "@Component",
-      "export default class ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/} extends Vue {${0}}",
-      "</script>",
+      "export default class ${2} extends Vue {${0}}",
+      "</script>\n",
       "<style lang=\"less\">",
       ".${1} {",
       "  display: block;",
       "}",
-      "</style>"
+      "</style>\n"
     ],
-    "description": "basic template"
+    "description": "basic template of vue"
+  },
+  "comment first line": {
+    "prefix": "comment",
+    "body": [
+      "${BLOCK_COMMENT_START}! *****************************************************************************",
+      "fileName    : ${TM_FILENAME} ",
+      "author      : 114233763@qq.com",
+      "date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+      "version     : v1",
+      "description : $1",
+      "***************************************************************************** ${BLOCK_COMMENT_END}"
+    ],
+    "description": "Log output to console"
+  },
+  "comment html": {
+    "prefix": "comment",
+    "body": [
+      "<!------------------------------------------------------------------------------",
+      "| fileName    : ${TM_FILENAME}                                                      |",
+      "| author      : 114233763@qq.com                                               |",
+      "| date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}                                            |",
+      "| version     : v1                                                             |",
+      "| description :  $1                                                              |",
+      "------------------------------------------------------------------------------->"
+    ],
+    "description": "Log output to console"
   }
 }
