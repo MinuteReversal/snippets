@@ -24,5 +24,49 @@
 			"***************************************************************************** ${BLOCK_COMMENT_END}\n"
 		],
 		"description": "Log output to console"
+	},
+	"rn component": {
+		"prefix": "rn component",
+		"body": [
+			"import React, { Component } from \"react\";",
+			"import { Text, StyleSheet, View } from \"react-native\";",
+			"import PropTypes from \"prop-types\";\n",
+			"export default class Link extends Component {",
+			"  static propTypes = {",
+			"    style: PropTypes.object",
+			"  };",
+			"  static defaultProps = {",
+			"    style: {}",
+			"  };",
+			"  render() {",
+			"    const { style } = this.props;",
+			"    return (",
+			"      <View style={[styles.link, style]}>",
+			"        <Text style={styles.link}>Link</Text>",
+			"      </View>",
+			"    );",
+			"  }",
+			"}\n",
+			"const styles = StyleSheet.create({",
+			"  link: {}",
+			"});"
+		]
+	},
+	"rn connect": {
+		"prefix": "rn connect",
+		"body": [
+			"/* 将全局状态添加到当前类中 */\n",
+			"import { connect } from 'react-redux';\n",
+			"const mapStateToProps = state => ({",
+			"});",
+			"const mapDispatchToProps = dispatch => {",
+			"  return {",
+			"    fn(){",
+			"      dispatch({type:\"todo\"});",
+			"    }",
+			"  };",
+			"};",
+			"export default connect(mapStateToProps, mapDispatchToProps)(${TM_FILENAME_BASE})"
+		]
 	}
 }

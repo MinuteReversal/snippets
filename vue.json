@@ -22,6 +22,7 @@
       "</template>\n",
       "<script lang=\"ts\">",
       "import { Vue, Component, Prop, Watch } from \"vue-property-decorator\";",
+      "import {} from \"vuex-class\"\n",
       "@Component",
       "export default class ${2} extends Vue {${0}}",
       "</script>\n",
@@ -32,6 +33,24 @@
       "</style>\n"
     ],
     "description": "basic template of vue"
+  },
+  "scaffold vue js": {
+    "prefix": "scaffold",
+    "body": [
+      "<template>",
+      "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
+      "    <p>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</p>",
+      "  </div>",
+      "</template>\n",
+      "<script>",
+      "export default {${0}}",
+      "</script>\n",
+      "<style lang=\"scss\">",
+      ".${1} {",
+      "  display: block;",
+      "}",
+      "</style>\n"
+    ]
   },
   "comment first line": {
     "prefix": "comment",
