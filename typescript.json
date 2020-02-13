@@ -23,6 +23,47 @@
       "description : $1",
       "***************************************************************************** ${BLOCK_COMMENT_END}\n"
     ],
-    "description": "Log output to console"
+    "description": "typescript comment of first line"
+  },
+  "scaffold vuex store template": {
+    "prefix": "scaffold vuex store",
+    "body": [
+      "import { ActionContext } from \"vuex\";",
+      "import {} from \"@/api/biz\";",
+      "import {} from \"@/api/biz/models\";\n",
+      "export interface I${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}State {",
+      "  field: number;",
+      "}\n",
+      "export class $1State implements I$1State {",
+      "  field = 0;",
+      "}\n",
+      "// state",
+      "const state = new $1State();\n",
+      "// getters",
+      "const getters = {",
+      "  field: (state: $1State) => state.field",
+      "};\n",
+      "// actions",
+      "const actions = {",
+      "  save({ commit }: ActionContext<$1State, any>, payload: any) {",
+      "    //do some request",
+      "    commit(\"SAVE\", payload);",
+      "  }",
+      "};\n",
+      "// mutations",
+      "const mutations = {",
+      "  SAVE(state: $1State, payload: any) {",
+      "    Object.assign(state, payload);",
+      "  }",
+      "};\n",
+      "export default {",
+      "  namespaced: true,",
+      "  state,",
+      "  getters,",
+      "  actions,",
+      "  mutations",
+      "};"
+    ],
+    "description": "vuex store template"
   }
 }
