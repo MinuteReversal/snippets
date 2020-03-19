@@ -36,7 +36,9 @@
 			"      appBar: AppBar(",
 			"        title: Text('${1}'),",
 			"      ),",
-			"      body: Text('${1}'),",
+			"      body: Container(",
+      "        child: Text('${1}')",
+      "      )",
 			"    );",
 			"  }",
 			"}"
@@ -58,7 +60,9 @@
 			"      appBar: AppBar(",
 			"        title: Text('${1}'),",
 			"      ),",
-			"      body: Text('${1}'),",
+			"      body: Container(",
+      "        child: Text('${1}')",
+      "      )",
 			"    );",
 			"  }",
 			"}"
