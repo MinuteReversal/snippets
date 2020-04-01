@@ -13,23 +13,30 @@
 	// 	"description": "Log output to console"
 	// }
 	"comment first line": {
-		"prefix": "comment",
+		"prefix": "comment first line",
 		"body": [
-		"${BLOCK_COMMENT_START}! *****************************************************************************",
-		"fileName    : ${TM_FILENAME} ",
-		"author      : 114233763@qq.com",
-		"date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
-		"version     : v1",
-		"description : $1",
-		"***************************************************************************** ${BLOCK_COMMENT_END}"
+		"/// ${TM_FILENAME}",		
+		"/// author      : 114233763@qq.com",
+		"/// date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+		"/// version     : v1",
+		"/// description : $1",		
 		],
 		"description": "Log output to console"
+	},
+	"comment member": {
+		"prefix": "comment member",
+		"body": [
+			"/// ${0:Parses a set of option strings. For each option:}",
+			"///",
+			"/// * If it is `null`, then it is ignored.",
+		],
+		"description": ["https://dart-lang.github.io/linter/lints/slash_for_doc_comments.html","https://www.markdownguide.org/cheat-sheet/"]
 	},
 	"scaffold stateless widget": {
 		"prefix": "scaffold stateless widget",
 		"body": [
 			"import 'package:flutter/material.dart';\n",
-			"class ${1:${TM_FILENAME_BASE/(_|^)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
 			"  @override",
 			"  Widget build(BuildContext context) {",
 			"    return Scaffold(",
@@ -37,8 +44,8 @@
 			"        title: Text('${1}'),",
 			"      ),",
 			"      body: Container(",
-      "        child: Text('${1}')",
-      "      )",
+      		"        child: Text('${1}'),",
+			"      ),",
 			"    );",
 			"  }",
 			"}"
@@ -49,7 +56,7 @@
 		"prefix": "scaffold state widget",
 		"body": [
 			"import 'package:flutter/material.dart';\n",
-			"class ${1:${TM_FILENAME_BASE/(_|^)([a-z])/${2:/capitalize}/g}} extends StatefulWidget {",
+			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatefulWidget {",
 			"  @override",
 			"  _${1} createState() => _${1}();",
 			"}\n",
@@ -61,8 +68,8 @@
 			"        title: Text('${1}'),",
 			"      ),",
 			"      body: Container(",
-      "        child: Text('${1}')",
-      "      )",
+			"        child: Text('${1}'),",
+			"      ),",
 			"    );",
 			"  }",
 			"}"
