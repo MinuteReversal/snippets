@@ -32,6 +32,24 @@
 		],
 		"description": ["https://dart-lang.github.io/linter/lints/slash_for_doc_comments.html","https://www.markdownguide.org/cheat-sheet/"]
 	},
+	"scaffold main":{
+		"prefix": "scaffold main",
+		"body": [
+			"void main() {",
+			"  ${0}",
+			"}"
+		],
+		"description": "template of main function"
+	},
+	"scaffold main async":{
+		"prefix": "scaffold main async",
+		"body": [
+			"Future<void> main() async {",
+			"  ${0}",
+			"}"
+		],
+		"description": "template of async main function"
+	},
 	"scaffold stateless widget": {
 		"prefix": "scaffold stateless widget",
 		"body": [

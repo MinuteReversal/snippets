@@ -17,8 +17,9 @@
 		"body": [
 			"#include <iostream>\r\n",
 			"using namespace std;\r\n",			
-			"int main(int argc, char **argv)",
+			"int main(int argc, char const **argv)",
 			"{",
+			"  ${0}",
 			"  return 0;",
 			"}"
 		],
