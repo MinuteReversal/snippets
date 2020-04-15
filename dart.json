@@ -61,12 +61,14 @@
 			"      appBar: AppBar(",
 			"        title: Text('${1}'),",
 			"      ),",
-			"      body: Container(",
-      		"        child: Text('${1}'),",
+			"      body: Column(",
+			"        children: [",
+			"          Text('${1}'),",
+			"        ],",
 			"      ),",
 			"    );",
 			"  }",
-			"}"
+			"}\n"
 		],
 		"description": "template of stateless"
 	},
@@ -85,12 +87,14 @@
 			"      appBar: AppBar(",
 			"        title: Text('${1}'),",
 			"      ),",
-			"      body: Container(",
-			"        child: Text('${1}'),",
+			"      body: Column(",
+			"        children: [",
+			"          Text('${1}'),",
+			"        ],",
 			"      ),",
 			"    );",
 			"  }",
-			"}"
+			"}\n"
 		],
 		"description": "template of state"
 	}
