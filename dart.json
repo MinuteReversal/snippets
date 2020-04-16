@@ -97,5 +97,38 @@
 			"}\n"
 		],
 		"description": "template of state"
+	},
+	"scaffold animated widget": {
+		"prefix": "scaffold animated widget",
+		"body": [
+			"import 'dart:math';",
+			"import 'package:flutter/material.dart';\n",
+			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends AnimatedWidget {",
+			"  final double left;",
+			"  final double top;",
+			"  ${1}(",
+			"      {Key key, Animation<double> animation, this.left, this.top})",
+			"      : super(key: key, listenable: animation);",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    final Animation<double> animation = listenable;",
+			"    return Positioned(",
+			"      child: Transform.rotate(",
+			"        child: Container(",
+			"          child: Text('${1}'),",
+			"          color: Colors.yellow,",
+			"          width: 50,",
+			"          height: 50,",
+			"        ),",
+			"        angle: pi / 180 * animation.value,",
+			"      ),",
+			"      left: left,",
+			"      top: top,",
+			"    );",
+			"  }",
+			"}\n"
+		],
+		"description": "template of state"
 	}
 }
