@@ -17,7 +17,7 @@
     "body": [
       "<template>",
       "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
-      "    <p>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</p>",
+      "    <p>${2:${TM_FILENAME_BASE/(-|^|\\.)([a-z])/${2:/capitalize}/g}}</p>",
       "  </div>",
       "</template>\n",
       "<script lang=\"ts\">",
@@ -39,7 +39,7 @@
     "body": [
       "<template>",
       "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
-      "    <p>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</p>",
+      "    <p>${2:${TM_FILENAME_BASE/(-|^|\\.)([a-z])/${2:/capitalize}/g}}</p>",
       "  </div>",
       "</template>\n",
       "<script>",

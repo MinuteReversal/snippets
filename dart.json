@@ -209,13 +209,13 @@
 		],
 		"description": "template of stateless"
 	},
-	"scaffold state widget": {
-		"prefix": "scaffold state widget",
+	"scaffold stateful widget": {
+		"prefix": "scaffold stateful widget",
 		"body": [
 			"import 'package:flutter/material.dart';\n",
 			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatefulWidget {",
 			"  @override",
-			"  _${1} createState() => _${1}();",
+			"  _${1} createState() => new _${1}();",
 			"}\n",
 			"class _${1} extends State<${1}> {",
 			"  @override",
