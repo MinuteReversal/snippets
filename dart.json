@@ -1,223 +1,229 @@
 {
-	// Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log to console"
-	// }
-	"comment first line": {
-		"prefix": "comment first line",
-		"body": [
-		"/// ${TM_FILENAME}",		
-		"/// author      : 114233763@qq.com",
-		"/// date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
-		"/// version     : v1",
-		"/// description : $1",		
-		],
-		"description": "Log output to console"
-	},
-	"comment": {
-		"prefix": "comment",
-		"body": [
-			"/// ${1}",
-			"///",
-			"/// * ${0:这里是一些说明}",
-		],
-		"description": ["https://dart-lang.github.io/linter/lints/slash_for_doc_comments.html","https://www.markdownguide.org/cheat-sheet/"]
-	},
-	"scaffold main":{
-		"prefix": "scaffold main",
-		"body": [
-			"void main() {",
-			"  ${0}",
-			"}"
-		],
-		"description": "template of main function"
-	},
-	"scaffold main async":{
-		"prefix": "scaffold main async",
-		"body": [
-			"Future<void> main() async {",
-			"  ${0}",
-			"}"
-		],
-		"description": "template of async main function"
-	},
-	"scaffold screen widget": {
-		"prefix": "scaffold screen widget",
-		"body": [
-			"import 'package:flutter/material.dart';\n",
-			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-			"  @override",
-			"  Widget build(BuildContext context) {",
-			"    return Scaffold(",
-			"      appBar: AppBar(",
-			"        title: Text('${1}'),",
-			"      ),",
-			"      body: Column(",
-			"        children: [",
-			"          Text('${1}'),",
-			"        ],",
-			"      ),",
-			"    );",
-			"  }",
-			"}\n"
-		],
-		"description": "template of stateless"
-	},
-	"scaffold stateless row widget": {
-		"prefix": "scaffold stateless row widget",
-		"body": [
-			"import 'package:flutter/material.dart';\n",
-			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-			"  @override",
-			"  Widget build(BuildContext context) {",
-			"    return Row(",
-			"      children: [",
-			"        Text('${1}'),",
-			"      ],",
-			"    );",
-			"  }",
-			"}\n"
-		],
-		"description": "template of stateless Row"
-	},
-	"scaffold stateless column widget": {
-		"prefix": "scaffold stateless column widget",
-		"body": [
-			"import 'package:flutter/material.dart';\n",
-			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-			"  @override",
-			"  Widget build(BuildContext context) {",
-			"    return Column(",
-			"      children: [",
-			"        Text('${1}'),",
-			"      ],",
-			"    );",
-			"  }",
-			"}\n"
-		],
-		"description": "template of stateless Row"
-	},
-	"scaffold stateful widget": {
-		"prefix": "scaffold stateful widget",
-		"body": [
-			"import 'package:flutter/material.dart';\n",
-			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatefulWidget {",
-			"  @override",
-			"  _${1} createState() => new _${1}();",
-			"}",
-			"",
-			"class _${1} extends State<${1}> {",
-			"  @override",
-			"  Widget build(BuildContext context) {",
-			"    return Scaffold(",
-			"      appBar: AppBar(",
-			"        title: Text('${1}'),",
-			"      ),",
-			"      body: Column(",
-			"        children: [",
-			"          Text('${1}'),",
-			"        ],",
-			"      ),",
-			"    );",
-			"  }",
-			"}\n"
-		],
-	},
-	"scaffold global state": {
-		"prefix": "scaffold global state",
-		"body": [
-			"import 'package:flutter/widgets.dart';\n",
-			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends ChangeNotifier {",
-			"  int _total = 0;",
-			"",
-			"  int get total {",
-      "    return _total;",
-			"  }",
-			"",
-		  "  void add() {",
-			"    _total++;",
-    	"    notifyListeners();",
-			"  }",
-			"",
-  	  "  void remove() {",
-      "    _total--;",
-    	"    notifyListeners();",
-			"  }",
-			"}"
-		],
-	},
-	"scaffold global state consumer widget": {
-		"prefix": "scaffold global state consumer widget",
-		"body": [
-			"import 'package:flutter/material.dart';",
-			"import 'package:provider/provider.dart';",
-			"",
-			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-			"  @override",
-			"  Widget build(BuildContext context) {",
-			"    return Consumer<${0}>(",
-      "      builder: (context, value, child) => Scaffold(",
-			"        appBar: AppBar(",
-			"          title: Text('${1}'),",
-			"        ),",
-			"        body: Column(",
-			"          children: [",
-			"            Text(value.total.toString()),",
-      "            RaisedButton(",
-      "              onPressed: () {",
-      "                value.add();",
-      "              },",
-      "              child: Text('add'),",
-      "            ),",
-			"          ],",
-			"        ),",
-			"      ),",
-			"    );",
-			"  }",
-			"}"
-		],
-	},
-	"scaffold global state provider widget": {
-		"prefix": "scaffold global state provider widget",
-		"body": [
-			"import 'package:flutter/material.dart';",
-			"import 'package:provider/provider.dart';",
-			"",
-			"class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-			"  @override",
-			"  Widget build(BuildContext context) {",
-			"    return Consumer<${0}>(",
-      "      builder: (context, value, child) => Scaffold(",
-			"        appBar: AppBar(",
-			"          title: Text('${1}'),",
-			"        ),",
-			"        body: Column(",
-			"          children: [",
-			"            Text(Provider.of<${0}>(context).total.toString()),",
-      "            RaisedButton(",
-      "              onPressed: () {",
-      "                Provider.of<${0}>(",
-      "                  context,",
-      "                  listen: false,",
-      "                ).add();",
-      "              },",
-      "              child: Text('add'),",
-      "            ),",
-			"          ],",
-			"        ),",
-			"      ),",
-			"    );",
-			"  }",
-			"}"
-		],
-	}
+    // Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    //     "prefix": "log",
+    //     "body": [
+    //         "console.log('$1');",
+    //         "$2"
+    //     ],
+    //     "description": "Log to console"
+    // }
+    "comment first line": {
+        "prefix": "comment first line",
+        "body": [
+        "/// ${TM_FILENAME}",        
+        "/// author      : 114233763@qq.com",
+        "/// date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+        "/// version     : v1",
+        "/// description : $1",        
+        ],
+        "description": "Log output to console"
+    },
+    "comment": {
+        "prefix": "comment",
+        "body": [
+            "/// ${1}",
+            "///",
+            "/// * ${0:这里是一些说明}",
+        ],
+        "description": ["https://dart-lang.github.io/linter/lints/slash_for_doc_comments.html","https://www.markdownguide.org/cheat-sheet/"]
+    },
+    "scaffold main":{
+        "prefix": "scaffold main",
+        "body": [
+            "void main() {",
+            "  ${0}",
+            "}"
+        ],
+        "description": "template of main function"
+    },
+    "scaffold main async":{
+        "prefix": "scaffold main async",
+        "body": [
+            "Future<void> main() async {",
+            "  ${0}",
+            "}"
+        ],
+        "description": "template of async main function"
+    },
+    "scaffold screen widget": {
+        "prefix": "scaffold screen widget",
+        "body": [
+            "import 'package:flutter/material.dart';\n",
+            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+            "  ///组件的说明放在这里",
+            "  const $1({Key key}) : super(key: key);",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return Scaffold(",
+            "      appBar: AppBar(",
+            "        title: Text('${1}'),",
+            "      ),",
+            "      body: Column(",
+            "        children: [",
+            "          Text('${1}'),",
+            "        ],",
+            "      ),",
+            "    );",
+            "  }",
+            "}\n"
+        ],
+        "description": "template of stateless"
+    },
+    "scaffold stateless row widget": {
+        "prefix": "scaffold stateless row widget",
+        "body": [
+            "import 'package:flutter/material.dart';\n",
+            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+            "  ///组件的说明放在这里",
+            "  const $1({Key key}) : super(key: key);",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return Row(",
+            "      children: [",
+            "        Text('${1}'),",
+            "      ],",
+            "    );",
+            "  }",
+            "}\n"
+        ],
+        "description": "template of stateless Row"
+    },
+    "scaffold stateless column widget": {
+        "prefix": "scaffold stateless column widget",
+        "body": [
+            "import 'package:flutter/material.dart';\n",
+            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+            "  ///组件的说明放在这里",
+            "  const $1({Key key}) : super(key: key);",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return Column(",
+            "      children: [",
+            "        Text('${1}'),",
+            "      ],",
+            "    );",
+            "  }",
+            "}\n"
+        ],
+        "description": "template of stateless Row"
+    },
+    "scaffold stateful widget": {
+        "prefix": "scaffold stateful widget",
+        "body": [
+            "import 'package:flutter/material.dart';\n",
+            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatefulWidget {",
+            "  @override",
+            "  _${1} createState() => new _${1}();",
+            "}",
+            "",
+            "class _${1} extends State<${1}> {",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return Scaffold(",
+            "      appBar: AppBar(",
+            "        title: Text('${1}'),",
+            "      ),",
+            "      body: Column(",
+            "        children: [",
+            "          Text('${1}'),",
+            "        ],",
+            "      ),",
+            "    );",
+            "  }",
+            "}\n"
+        ],
+    },
+    "scaffold global state": {
+        "prefix": "scaffold global state",
+        "body": [
+            "import 'package:flutter/widgets.dart';\n",
+            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends ChangeNotifier {",
+            "  int _total = 0;",
+            "",
+            "  int get total {",
+            "    return _total;",
+            "  }",
+            "",
+            "  void add() {",
+            "    _total++;",
+            "    notifyListeners();",
+            "  }",
+            "",
+              "  void remove() {",
+            "    _total--;",
+            "    notifyListeners();",
+            "  }",
+            "}"
+        ],
+    },
+    "scaffold global state consumer widget": {
+        "prefix": "scaffold global state consumer widget",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:provider/provider.dart';",
+            "",
+            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return Consumer<${0}>(",
+            "      builder: (context, value, child) => Scaffold(",
+            "        appBar: AppBar(",
+            "          title: Text('${1}'),",
+            "        ),",
+            "        body: Column(",
+            "          children: [",
+            "            Text(value.total.toString()),",
+            "            RaisedButton(",
+            "              onPressed: () {",
+            "                value.add();",
+            "              },",
+            "              child: Text('add'),",
+            "            ),",
+            "          ],",
+            "        ),",
+            "      ),",
+            "    );",
+            "  }",
+            "}"
+        ],
+    },
+    "scaffold global state provider widget": {
+        "prefix": "scaffold global state provider widget",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:provider/provider.dart';",
+            "",
+            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return Consumer<${0}>(",
+            "      builder: (context, value, child) => Scaffold(",
+            "        appBar: AppBar(",
+            "          title: Text('${1}'),",
+            "        ),",
+            "        body: Column(",
+            "          children: [",
+            "            Text(Provider.of<${0}>(context).total.toString()),",
+            "            RaisedButton(",
+            "              onPressed: () {",
+            "                Provider.of<${0}>(",
+            "                  context,",
+            "                  listen: false,",
+            "                ).add();",
+            "              },",
+            "              child: Text('add'),",
+            "            ),",
+            "          ],",
+            "        ),",
+            "      ),",
+            "    );",
+            "  }",
+            "}"
+        ],
+    }
 }
