@@ -1,42 +1,54 @@
 {
-	// Place your snippets for c here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log output to console"
-	// }
-	"scaffold main": {
-		"prefix": "scaffold main",
-		"body": [
-			"#include <stdio.h>",
-			"",
-			"int main(int argc, char const *argv[])",
-			"{",
-			"    ${0:/* code */}",
-			"    return 0;",
-			"}",
-		],
-		"description": "a template of main function"
-	},
-	"scaffold winmain": {
-		"prefix": "scaffold winmain",
-		"body": [
-			"#include <Windows.h>",
-			"",
-			"//https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point",
-			"int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)",
-			"{",
-			"    ${0:/* code */}",
-			"    return 0;",
-			"}",
-		],
-		"description": "a template of WinMain function"
-	}
+  // Place your snippets for c here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "comment first line": {
+    "prefix": "comment first line",
+    "body": [
+      "${BLOCK_COMMENT_START}*****************************************************************************",
+      "* fileName    : ${TM_FILENAME} ",
+      "* author      : 114233763@qq.com",
+      "* date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+      "* description : $1",
+      "***************************************************************************** ${BLOCK_COMMENT_END}"
+    ],
+    "description": "a template of main function"
+  },
+  "scaffold main": {
+    "prefix": "scaffold main",
+    "body": [
+      "#include <stdio.h>",
+      "",
+      "int main(int argc, char const *argv[])",
+      "{",
+      "    ${0:/* code */}",
+      "    return 0;",
+      "}"
+    ],
+    "description": "a template of main function"
+  },
+  "scaffold winmain": {
+    "prefix": "scaffold winmain",
+    "body": [
+      "#include <Windows.h>",
+      "",
+      "//https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point",
+      "int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)",
+      "{",
+      "    ${0:/* code */}",
+      "    return 0;",
+      "}"
+    ],
+    "description": "a template of WinMain function"
+  }
 }

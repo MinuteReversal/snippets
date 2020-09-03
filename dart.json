@@ -323,7 +323,7 @@
         "prefix": "scaffold fetch medthod",
 		"body": [
             "LoadingContainerState state = LoadingContainerState.loading;",
-            "${2:List<Object>} data = <$2>();",
+            "${2:List<Object>} data = $2();",
             "///获取数据",
             "Future<void> ${0:fetchData}() async {",
             "  try {",
