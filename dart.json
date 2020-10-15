@@ -1,355 +1,369 @@
 {
-    // Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and 
-    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-    // same ids are connected.
-    // Example:
-    // "Print to console": {
-    //     "prefix": "log",
-    //     "body": [
-    //         "console.log('$1');",
-    //         "$2"
-    //     ],
-    //     "description": "Log to console"
-    // }
-    "comment first line": {
-        "prefix": "comment first line",
-        "body": [
-        "/*",
-        " * ${TM_FILENAME}",        
-        " * author      : 114233763@qq.com",
-        " * date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
-        " * version     : v1",
-        " * description : $1",        
-        " * ",
-        " */"
-        ],
-        "description": "Log output to console"
-    },
-    "comment": {
-        "prefix": "comment",
-        "body": [
-            "/// ${1}",
-            "///",
-            "/// * ${0:这里是一些说明}",
-        ],
-        "description": ["https://dart-lang.github.io/linter/lints/slash_for_doc_comments.html","https://www.markdownguide.org/cheat-sheet/"]
-    },
-    "scaffold main":{
-        "prefix": "scaffold main",
-        "body": [
-            "void main(List<String> args) {",
-            "  ${0}",
-            "}"
-        ],
-        "description": "template of main function"
-    },
-    "scaffold main async":{
-        "prefix": "scaffold main async",
-        "body": [
-            "Future<void> main(List<String> args) async {",
-            "  ${0}",
-            "}"
-        ],
-        "description": "template of async main function"
-    },
-    "scaffold build widgets method":{
-        "prefix": "scaffold build widgets method",
-        "body": [
-            "///构建${4:多个组件}",
-            "List<Widget> build${1:Widgets}(BuildContext context,List<${2:Object}> list) {",
-            "  final items = new List<Widget>();",
-            "  for (var i = 0; i < list.length; i++) {",
-            "    final item = list[i];",
-            "    items.add(${3:Container()}); //添加一个",
-            "  }",
-            "  return items;",
-            "}",
-        ],
-        "description": "template of function"
-    },
-    "scaffold screen widget": {
-        "prefix": "scaffold screen widget",
-        "body": [
-            "import 'package:flutter/material.dart';",
-            "",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-            "  ///组件的说明放在这里",
-            "  const $1({Key key}) : super(key: key);",
-            "  @override",
-            "  Widget build(BuildContext context) {",
-            "    return Scaffold(",
-            "      appBar: AppBar(",
-            "        title: Text('${1}'),",
-            "      ),",
-            "      body: Column(",
-            "        children: [",
-            "          Text('${1}'),",
-            "        ],",
-            "      ),",
-            "    );",
-            "  }",
-            "}\n"
-        ],
-        "description": "template of stateless"
-    },
-    "scaffold stateless row widget": {
-        "prefix": "scaffold stateless row widget",
-        "body": [
-            "import 'package:flutter/material.dart';",
-            "",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-            "  ///组件的说明放在这里",
-            "  const $1({Key key}) : super(key: key);",
-            "  @override",
-            "  Widget build(BuildContext context) {",
-            "    return Row(",
-            "      children: [",
-            "        Text('${1}'),",
-            "      ],",
-            "    );",
-            "  }",
-            "}\n"
-        ],
-        "description": "template of stateless Row"
-    },
-    "scaffold stateless column widget": {
-        "prefix": "scaffold stateless column widget",
-        "body": [
-            "import 'package:flutter/material.dart';",
-            "",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)(\\w)/${2:/capitalize}/g}} extends StatelessWidget {",
-            "  ///组件的说明放在这里",
-            "  const $1({Key key}) : super(key: key);",
-            "  @override",
-            "  Widget build(BuildContext context) {",
-            "    return Column(",
-            "      children: [",
-            "        Text('${1}'),",
-            "      ],",
-            "    );",
-            "  }",
-            "}\n"
-        ],
-        "description": "template of stateless Row"
-    },
-    "scaffold stateful widget": {
-        "prefix": "scaffold stateful widget",
-        "body": [
-            "import 'package:flutter/material.dart';",
-            "",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatefulWidget {",
-            "  @override",
-            "  _${1} createState() => new _${1}();",
-            "}",
-            "",
-            "class _${1} extends State<${1}> {",
-            "  @override",
-            "  Widget build(BuildContext context) {",
-            "    return Scaffold(",
-            "      appBar: AppBar(",
-            "        title: Text('${1}'),",
-            "      ),",
-            "      body: Column(",
-            "        children: [",
-            "          Text('${1}'),",
-            "        ],",
-            "      ),",
-            "    );",
-            "  }",
-            "}\n"
-        ],
-    },
-    "scaffold painter": {
-        "prefix": "scaffold painter",
-        "body": [
-            "import 'package:flutter/material.dart';",
-            "",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends CustomPainter {",
-            "  @override",
-            "  void paint(Canvas canvas, Size size) {",
-            "    //实例化画笔",
-            "    final paint = new Paint();",
-            "    //设置画笔",
-            "    paint.color = Colors.black;",
-            "    paint.strokeWidth = 2;//线宽",
-            "    paint.style = PaintingStyle.stroke;//画边框",
-            "    //画线",
-            "    canvas.drawLine(Offset(5, 25), Offset(50, 25), paint);",
-            "    //画方块",
-            "    canvas.drawRect(Rect.fromLTWH(60, 5, 50, 50), paint);",
-            "    //画圆",
-            "    canvas.drawCircle(Offset(150, 30), 25, paint);",
-            "  }",
-            "",
-            "  @override",
-            "  bool shouldRepaint(CustomPainter oldDelegate) {",
-            "    return true;",
-            "  }",
-            "}\n"
-        ],
-    },
-    "scaffold global state": {
-        "prefix": "scaffold global state",
-        "body": [
-            "import 'package:flutter/widgets.dart';\n",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends ChangeNotifier {",
-            "  int _total = 0;",
-            "",
-            "  int get total {",
-            "    return _total;",
-            "  }",
-            "",
-            "  void add() {",
-            "    _total++;",
-            "    notifyListeners();",
-            "  }",
-            "",
-              "  void remove() {",
-            "    _total--;",
-            "    notifyListeners();",
-            "  }",
-            "}"
-        ],
-    },
-    "scaffold global state consumer widget": {
-        "prefix": "scaffold global state consumer widget",
-        "body": [
-            "import 'package:flutter/material.dart';",
-            "import 'package:provider/provider.dart';",
-            "",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-            "  @override",
-            "  Widget build(BuildContext context) {",
-            "    return Consumer<${0}>(",
-            "      builder: (context, value, child) => Scaffold(",
-            "        appBar: AppBar(",
-            "          title: Text('${1}'),",
-            "        ),",
-            "        body: Column(",
-            "          children: [",
-            "            Text(value.total.toString()),",
-            "            RaisedButton(",
-            "              onPressed: () {",
-            "                value.add();",
-            "              },",
-            "              child: Text('add'),",
-            "            ),",
-            "            RaisedButton(",
-            "              onPressed: () {",
-            "                value.remove();",
-            "              },",
-            "              child: Text('remove'),",
-            "            ),",
-            "            RaisedButton(",
-            "              onPressed: () {",
-            "                Navigator.push(",
-            "                  context,",
-            "                  MaterialPageRoute(",
-            "                    builder: (BuildContext context) {",
-            "                      return DemoGlobalNumber();",
-            "                    },",
-            "                  ),",
-            "                );",
-            "              },",
-            "              child: Text('open'),",
-            "            ),",
-            "          ],",
-            "        ),",
-            "      ),",
-            "    );",
-            "  }",
-            "}"
-        ],
-    },
-    "scaffold global state provider widget": {
-        "prefix": "scaffold global state provider widget",
-        "body": [
-            "import 'package:flutter/material.dart';",
-            "import 'package:provider/provider.dart';",
-            "",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
-            "  @override",
-            "  Widget build(BuildContext context) {",
-            "    return Scaffold(",
-            "      appBar: AppBar(",
-            "        title: Text('${1}'),",
-            "      ),",
-            "      body: Column(",
-            "        children: [",
-            "          Text(Provider.of<${0}>(context).total.toString()),",
-            "          RaisedButton(",
-            "            onPressed: () {",
-            "              Provider.of<${0}>(context, listen: false).add();",
-            "            },",
-            "            child: Text('+'),",
-            "          ),",
-            "          RaisedButton(",
-            "            onPressed: () {",
-            "              Provider.of<${0}>(context, listen: false).remove();",
-            "            },",
-            "            child: Text('-'),",
-            "          ),",
-            "          RaisedButton(",
-            "            onPressed: () {",
-            "              Navigator.push(",
-            "                context,",
-            "                MaterialPageRoute(",
-            "                  builder: (BuildContext context) {",
-            "                    return DemoGlobalNumber();",
-            "                  },",
-            "                ),",
-            "              );",
-            "            },",
-            "            child: Text('open'),",
-            "          ),",
-            "        ],",
-            "      ),",
-            "    );",
-            "  }",
-            "}"
-        ],
-    },
-    "scaffold event class":{
-		"prefix": "scaffold event class",
-		"body": [
-            "import 'event.dart';",
-            "///${0:事件说明}",
-            "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends Event {}",
-		],
-		"description": "template of event class"
-    },
-    "scaffold fetch medthod":{
-        "prefix": "scaffold fetch medthod",
-		"body": [
-            "LoadingContainerState state = LoadingContainerState.loading;",
-            "${2:List<Object>} data = $2();",
-            "///获取数据",
-            "Future<void> ${0:fetchData}() async {",
-            "  try {",
-            "    final result = await ${1:tKGetPaperQuestionGetMyXCModuleList}();",
-            "    setState(() {",
-            "      data = result;",
-            "      if (data.length == 0) {",
-            "        state = LoadingContainerState.empty;",
-            "      } else {",
-            "        state = LoadingContainerState.done;",
-            "      }",
-            "    });",
-            "  } catch (ex) {",
-            "    setState(() {",
-            "      state = LoadingContainerState.error;",
-            "    });",
-            "  }",
-            "}",
-		],
-		"description": "template of event class"
-    },
-    "scaffold after layout":{
-        "prefix": "scaffold after layout",
-        "body":[
-            "WidgetsBinding.instance.addPostFrameCallback(_afterLayout);",
-        ],
-        "description": "forget name",
-    }
+  // Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  //     "prefix": "log",
+  //     "body": [
+  //         "console.log('$1');",
+  //         "$2"
+  //     ],
+  //     "description": "Log to console"
+  // }
+  "comment first line": {
+    "prefix": "comment first line",
+    "body": [
+      "/*",
+      " * ${TM_FILENAME}",
+      " * author      : 114233763@qq.com",
+      " * date        : ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+      " * version     : v1",
+      " * description : $1",
+      " * ",
+      " */"
+    ],
+    "description": "Log output to console"
+  },
+  "comment": {
+    "prefix": "comment",
+    "body": ["/// ${1}", "///", "/// * ${0:这里是一些说明}"],
+    "description": [
+      "https://dart-lang.github.io/linter/lints/slash_for_doc_comments.html",
+      "https://www.markdownguide.org/cheat-sheet/"
+    ]
+  },
+  "scaffold main": {
+    "prefix": "scaffold main",
+    "body": ["void main(List<String> args) {", "  ${0}", "}"],
+    "description": "template of main function"
+  },
+  "scaffold main async": {
+    "prefix": "scaffold main async",
+    "body": ["Future<void> main(List<String> args) async {", "  ${0}", "}"],
+    "description": "template of async main function"
+  },
+  "scaffold build widgets method": {
+    "prefix": "scaffold build widgets method",
+    "body": [
+      "///构建${4:多个组件}",
+      "List<Widget> build${1:Widgets}(BuildContext context,List<${2:Object}> list) {",
+      "  final items = new List<Widget>();",
+      "  for (var i = 0; i < list.length; i++) {",
+      "    final item = list[i];",
+      "    items.add(${3:Container()}); //添加一个",
+      "  }",
+      "  return items;",
+      "}"
+    ],
+    "description": "template of function"
+  },
+  "scaffold screen widget": {
+    "prefix": "scaffold screen widget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+      "  ///组件的说明放在这里",
+      "  const $1({Key key}) : super(key: key);",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Scaffold(",
+      "      appBar: AppBar(",
+      "        title: Text('${1}'),",
+      "      ),",
+      "      body: Column(",
+      "        children: [",
+      "          Text('${1}'),",
+      "        ],",
+      "      ),",
+      "    );",
+      "  }",
+      "}\n"
+    ],
+    "description": "template of stateless"
+  },
+  "scaffold stateless row widget": {
+    "prefix": "scaffold stateless row widget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+      "  ///组件的说明放在这里",
+      "  const $1({Key key}) : super(key: key);",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Row(",
+      "      children: [",
+      "        Text('${1}'),",
+      "      ],",
+      "    );",
+      "  }",
+      "}\n"
+    ],
+    "description": "template of stateless Row"
+  },
+  "scaffold stateless column widget": {
+    "prefix": "scaffold stateless column widget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)(\\w)/${2:/capitalize}/g}} extends StatelessWidget {",
+      "  ///组件的说明放在这里",
+      "  const $1({Key key}) : super(key: key);",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Column(",
+      "      children: [",
+      "        Text('${1}'),",
+      "      ],",
+      "    );",
+      "  }",
+      "}\n"
+    ],
+    "description": "template of stateless Row"
+  },
+  "scaffold stateful widget": {
+    "prefix": "scaffold stateful widget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatefulWidget {",
+      "  @override",
+      "  _${1} createState() => new _${1}();",
+      "}",
+      "",
+      "class _${1} extends State<${1}> {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Scaffold(",
+      "      appBar: AppBar(",
+      "        title: Text('${1}'),",
+      "      ),",
+      "      body: Column(",
+      "        children: [",
+      "          Text('${1}'),",
+      "        ],",
+      "      ),",
+      "    );",
+      "  }",
+      "}\n"
+    ]
+  },
+  "scaffold painter": {
+    "prefix": "scaffold painter",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends CustomPainter {",
+      "  @override",
+      "  void paint(Canvas canvas, Size size) {",
+      "    //实例化画笔",
+      "    final paint = new Paint();",
+      "    //设置画笔",
+      "    paint.color = Colors.black;",
+      "    paint.strokeWidth = 2;//线宽",
+      "    paint.style = PaintingStyle.stroke;//画边框",
+      "    //画线",
+      "    canvas.drawLine(Offset(5, 25), Offset(50, 25), paint);",
+      "    //画方块",
+      "    canvas.drawRect(Rect.fromLTWH(60, 5, 50, 50), paint);",
+      "    //画圆",
+      "    canvas.drawCircle(Offset(150, 30), 25, paint);",
+      "  }",
+      "",
+      "  @override",
+      "  bool shouldRepaint(CustomPainter oldDelegate) {",
+      "    return true;",
+      "  }",
+      "}\n"
+    ]
+  },
+  "scaffold global state": {
+    "prefix": "scaffold global state",
+    "body": [
+      "import 'package:flutter/widgets.dart';\n",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends ChangeNotifier {",
+      "  int _total = 0;",
+      "",
+      "  int get total {",
+      "    return _total;",
+      "  }",
+      "",
+      "  void add() {",
+      "    _total++;",
+      "    notifyListeners();",
+      "  }",
+      "",
+      "  void remove() {",
+      "    _total--;",
+      "    notifyListeners();",
+      "  }",
+      "}"
+    ]
+  },
+  "scaffold global state consumer widget": {
+    "prefix": "scaffold global state consumer widget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:provider/provider.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Consumer<${0}>(",
+      "      builder: (context, value, child) => Scaffold(",
+      "        appBar: AppBar(",
+      "          title: Text('${1}'),",
+      "        ),",
+      "        body: Column(",
+      "          children: [",
+      "            Text(value.total.toString()),",
+      "            RaisedButton(",
+      "              onPressed: () {",
+      "                value.add();",
+      "              },",
+      "              child: Text('add'),",
+      "            ),",
+      "            RaisedButton(",
+      "              onPressed: () {",
+      "                value.remove();",
+      "              },",
+      "              child: Text('remove'),",
+      "            ),",
+      "            RaisedButton(",
+      "              onPressed: () {",
+      "                Navigator.push(",
+      "                  context,",
+      "                  MaterialPageRoute(",
+      "                    builder: (BuildContext context) {",
+      "                      return DemoGlobalNumber();",
+      "                    },",
+      "                  ),",
+      "                );",
+      "              },",
+      "              child: Text('open'),",
+      "            ),",
+      "          ],",
+      "        ),",
+      "      ),",
+      "    );",
+      "  }",
+      "}"
+    ]
+  },
+  "scaffold global state provider widget": {
+    "prefix": "scaffold global state provider widget",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:provider/provider.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends StatelessWidget {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Scaffold(",
+      "      appBar: AppBar(",
+      "        title: Text('${1}'),",
+      "      ),",
+      "      body: Column(",
+      "        children: [",
+      "          Text(Provider.of<${0}>(context).total.toString()),",
+      "          RaisedButton(",
+      "            onPressed: () {",
+      "              Provider.of<${0}>(context, listen: false).add();",
+      "            },",
+      "            child: Text('+'),",
+      "          ),",
+      "          RaisedButton(",
+      "            onPressed: () {",
+      "              Provider.of<${0}>(context, listen: false).remove();",
+      "            },",
+      "            child: Text('-'),",
+      "          ),",
+      "          RaisedButton(",
+      "            onPressed: () {",
+      "              Navigator.push(",
+      "                context,",
+      "                MaterialPageRoute(",
+      "                  builder: (BuildContext context) {",
+      "                    return DemoGlobalNumber();",
+      "                  },",
+      "                ),",
+      "              );",
+      "            },",
+      "            child: Text('open'),",
+      "          ),",
+      "        ],",
+      "      ),",
+      "    );",
+      "  }",
+      "}"
+    ]
+  },
+  "scaffold event class": {
+    "prefix": "scaffold event class",
+    "body": [
+      "import 'event.dart';",
+      "///${0:事件说明}",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} extends Event {}"
+    ],
+    "description": "template of event class"
+  },
+  "scaffold fetch medthod": {
+    "prefix": "scaffold fetch medthod",
+    "body": [
+      "LoadingContainerState state = LoadingContainerState.loading;",
+      "${2:List<Object>} data = $2();",
+      "///获取数据",
+      "Future<void> ${0:fetchData}() async {",
+      "  try {",
+      "    final result = await ${1:tKGetPaperQuestionGetMyXCModuleList}();",
+      "    setState(() {",
+      "      data = result;",
+      "      if (data.length == 0) {",
+      "        state = LoadingContainerState.empty;",
+      "      } else {",
+      "        state = LoadingContainerState.done;",
+      "      }",
+      "    });",
+      "  } catch (ex) {",
+      "    setState(() {",
+      "      state = LoadingContainerState.error;",
+      "    });",
+      "  }",
+      "}"
+    ],
+    "description": "template of event class"
+  },
+  "scaffold after layout": {
+    "prefix": "scaffold after layout",
+    "body": ["WidgetsBinding.instance.addPostFrameCallback(_afterLayout);"],
+    "description": "forget name"
+  },
+  "scaffold class": {
+    "prefix": "scaffold class",
+    "body": [
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} {",
+      "  $0",
+      "}"
+    ]
+  },
+  "scaffold model": {
+    "prefix": "scaffold model",
+    "body": [
+      "import 'package:json_annotation/json_annotation.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.g.dart';",
+      "",
+      "///${2:这里是一些注释}",
+      "@JsonSerializable()",
+      "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} {",
+      "  ///$2",
+      "  $1();",
+      "  factory $1.fromJson(Map<String, dynamic> json) =>_$$1FromJson(json);",
+      "  Map<String, dynamic> toJson() => _$$1ToJson(this);",
+      "}"
+    ]
+  }
 }

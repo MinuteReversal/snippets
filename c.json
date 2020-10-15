@@ -24,6 +24,18 @@
     ],
     "description": "a template of main function"
   },
+  "comment function": {
+    "prefix": "comment function",
+    "body": [
+      "/**",
+      "* ${1}",
+      "* @param ${2}",
+      "* @param ${3}",
+      "* @return ${4}",
+      "*/"
+    ],
+    "description": "a template of main function"
+  },
   "scaffold main": {
     "prefix": "scaffold main",
     "body": [
@@ -48,6 +60,16 @@
       "    ${0:/* code */}",
       "    return 0;",
       "}"
+    ],
+    "description": "a template of WinMain function"
+  },
+  "scaffold typedef struct": {
+    "prefix": "scaffold typedef struct",
+    "body": [
+      "typedef struct _${1}",
+      "{",
+      "    ${0:/* code */}",
+      "} ${1}, *P${1};"
     ],
     "description": "a template of WinMain function"
   }
