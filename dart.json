@@ -361,7 +361,11 @@
       "class ${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${2:/capitalize}/g}} {",
       "  ///$2",
       "  $1();",
+      "",
+      "  ///反序列化",
       "  factory $1.fromJson(Map<String, dynamic> json) =>_$$1FromJson(json);",
+      "",
+      "  ///序列化",
       "  Map<String, dynamic> toJson() => _$$1ToJson(this);",
       "}"
     ]
