@@ -44,6 +44,34 @@
     "body": ["Future<void> main(List<String> args) async {", "  ${0}", "}"],
     "description": "template of async main function"
   },
+  "scaffold main test": {
+    "prefix": "scaffold main test",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:flutter_test/flutter_test.dart';",
+      "import 'package:qing_cloud_flutter_app/screens/home/home.dart';",
+      "",
+      "void main() {",
+      "  testWidgets('${1:${TM_FILENAME_BASE/(_|^|\\.)([a-z])/${1:+ }${2:downcase/}/g}} smoke test', (WidgetTester tester) async {",
+      "    // Build our app and trigger a frame.",
+      "    await tester.pumpWidget(Home());",
+      "",
+      "    // Verify that our counter starts at 0.",
+      "    expect(find.text('0'), findsOneWidget);",
+      "    expect(find.text('1'), findsNothing);",
+      "",
+      "    // Tap the '+' icon and trigger a frame.",
+      "    await tester.tap(find.byIcon(Icons.add));",
+      "    await tester.pump();",
+      "",
+      "    // Verify that our counter has incremented.",
+      "    expect(find.text('0'), findsNothing);",
+      "    expect(find.text('1'), findsOneWidget);",
+      "  });",
+      "}"
+    ],
+    "description": "template of test main function"
+  },
   "scaffold build widgets method": {
     "prefix": "scaffold build widgets method",
     "body": [
