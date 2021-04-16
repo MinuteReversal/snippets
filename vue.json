@@ -1,7 +1,7 @@
 {
-  // Place your snippets for vue here. Each snippet is defined under a snippet name and has a prefix, body and 
+  // Place your snippets for vue here. Each snippet is defined under a snippet name and has a prefix, body and
   // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
   // same ids are connected.
   // Example:
   // "Print to console": {
@@ -12,25 +12,117 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "scaffold vue ts": {
-    "prefix": "scaffold",
+  "scaffold vue test web": {
+    "prefix": "scaffold ts less title-bar",
+    "body": [
+      "<template>",
+      "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
+      "    <title-bar>",
+      "      <a slot=\"leading\" @click=\"\\$router.back()\">&lt;&nbsp;返回</a>",
+      "      ${2:${TM_FILENAME_BASE/(-|^|\\.)([a-z])/${2:/capitalize}/g}}",
+      "    </title-bar>",
+      "    <p>$2</p>",
+      "  </div>",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "import { Vue, Component } from \"vue-property-decorator\";",
+      "",
+      "@Component({",
+      "  components: {",
+      "    TitleBar: () => import(\"@/components/TitleBar.vue\")",
+      "  }",
+      "})",
+      "export default class $2 extends Vue {$0}",
+      "</script>",
+      "",
+      "<style lang=\"less\">",
+      ".$1 {",
+      "  display: flex;",
+      "  flex-direction: column;",
+      "}",
+      "</style>",
+      ""
+    ],
+    "description": "basic template of vue"
+  },
+  "scaffold vue ts less": {
+    "prefix": "scaffold ts less",
     "body": [
       "<template>",
       "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
       "    <p>${2:${TM_FILENAME_BASE/(-|^|\\.)([a-z])/${2:/capitalize}/g}}</p>",
       "  </div>",
-      "</template>\n",
+      "</template>",
+      "",
       "<script lang=\"ts\">",
-      "import { Vue, Component, Prop, Watch } from \"vue-property-decorator\";",
-      "import {} from \"vuex-class\";\n",
+      "import { Vue, Component } from \"vue-property-decorator\";",
+      "import {} from \"vuex-class\";",
+      "",
       "@Component",
       "export default class ${2} extends Vue {${0}}",
-      "</script>\n",
+      "</script>",
+      "",
+      "<style lang=\"less\">",
+      ".${1} {",
+      "  display: flex;",
+      "  flex-direction: column;",
+      "}",
+      "</style>",
+      ""
+    ],
+    "description": "basic template of vue"
+  },
+  "scaffold vue ts": {
+    "prefix": "scaffold ts scss",
+    "body": [
+      "<template>",
+      "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
+      "    <p>${2:${TM_FILENAME_BASE/(-|^|\\.)([a-z])/${2:/capitalize}/g}}</p>",
+      "  </div>",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "import { Vue, Component } from \"vue-property-decorator\";",
+      "import {} from \"vuex-class\";\n",
+      "@Component",
+      "export default class $2 extends Vue {${0}}",
+      "</script>",
+      "",
+      "<style lang=\"scss\">",
+      ".$1 {",
+      "  display: flex;",
+      "  flex-direction: column;",
+      "}",
+      "</style>",
+      ""
+    ],
+    "description": "basic template of vue"
+  },
+  "scaffold vue ts uni-app": {
+    "prefix": "scaffold ts uni-app",
+    "body": [
+      "<template>",
+      "  <view class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
+      "    <p>${2:${TM_FILENAME_BASE/(-|^|\\.)([a-z])/${2:/capitalize}/g}}</p>",
+      "  </view>",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "import { Vue, Component } from \"vue-property-decorator\";",
+      "import {} from \"vuex-class\";",
+      "",
+      "@Component",
+      "export default class ${2} extends Vue {${0}}",
+      "</script>",
+      "",
       "<style lang=\"scss\">",
       ".${1} {",
-      "  display: block;",
+      "  display: flex;",
+      "  flex-direction: column;",
       "}",
-      "</style>\n"
+      "</style>",
+      ""
     ],
     "description": "basic template of vue"
   },
@@ -41,15 +133,18 @@
       "  <div class=\"${1:${TM_FILENAME_BASE/(\\w)([A-Z])?/${1:/downcase}${2:+-}${2:/downcase}/g}}\">",
       "    <p>${2:${TM_FILENAME_BASE/(-|^|\\.)([a-z])/${2:/capitalize}/g}}</p>",
       "  </div>",
-      "</template>\n",
+      "</template>",
+      "",
       "<script>",
       "export default {${0}}",
-      "</script>\n",
+      "</script>",
+      "",
       "<style lang=\"scss\">",
       ".${1} {",
       "  display: block;",
       "}",
-      "</style>\n"
+      "</style>",
+      ""
     ]
   },
   "scaffold wepy page": {
@@ -75,7 +170,7 @@
       "  \"usingComponents\": {",
       "  }",
       "}",
-      "</config>",
+      "</config>"
     ]
   },
   "scaffold wepy component": {
@@ -100,7 +195,7 @@
       "  \"usingComponents\": {",
       "  }",
       "}",
-      "</config>",
+      "</config>"
     ]
   },
   "scaffold wepy store component": {
@@ -135,7 +230,7 @@
       "  \"usingComponents\": {",
       "  }",
       "}",
-      "</config>",
+      "</config>"
     ]
   },
   "comment first line": {

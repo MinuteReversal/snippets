@@ -366,7 +366,7 @@
   },
   "scaffold after layout": {
     "prefix": "scaffold after layout",
-    "body": ["WidgetsBinding.instance.addPostFrameCallback(_afterLayout);"],
+    "body": ["WidgetsBinding.instance.addPostFrameCallback(afterLayout);"],
     "description": "forget name"
   },
   "scaffold class": {
