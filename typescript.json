@@ -170,7 +170,7 @@
     "body": [
       "import SimpleBase from \"./simple_base\";",
       "",
-      "export default class ${1:${TM_FILENAME_BASE/(_|-|^|\\.)([a-z])/${2:/capitalize}/g}} extends SimpleBase {",
+      "export default class ${1:${TM_FILENAME_BASE/(_|-|^|\\.)(\\w)/${2:/capitalize}/g}} extends SimpleBase {",
       "  constructor() {",
       "    super();",
       "    const { gl } = this;",
