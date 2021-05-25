@@ -138,5 +138,46 @@
       "};"
     ],
     "description": "vuex store template"
+  },
+  "scaffold threejs class": {
+    "prefix": "scaffold three class",
+    "body": [
+      "import * as THREE from \"three\";",
+      "import SimpleBase from \"./simple_base\";",
+      "",
+      "export default class ${1:${TM_FILENAME_BASE/(_|-|^|\\.)([a-z])/${2:/capitalize}/g}} extends SimpleBase {",
+      "  constructor() {",
+      "    super();",
+      "    const { scene } = this;",
+      "",
+      "    const geometry = new THREE.BoxGeometry(1, 1, 1);",
+      "    const material = new THREE.MeshBasicMaterial({",
+      "      color: 0xffff00,",
+      "      side: THREE.DoubleSide",
+      "    });",
+      "    const plane = new THREE.Mesh(geometry, material);",
+      "    scene.add(plane);",
+      "",
+      "    this.animate();",
+      "  }",
+      "}",
+      ""
+    ],
+    "description": "threee class template"
+  },
+  "scaffold opengl class": {
+    "prefix": "scaffold opengl class",
+    "body": [
+      "import SimpleBase from \"./simple_base\";",
+      "",
+      "export default class ${1:${TM_FILENAME_BASE/(_|-|^|\\.)([a-z])/${2:/capitalize}/g}} extends SimpleBase {",
+      "  constructor() {",
+      "    super();",
+      "    const { gl } = this;",
+      "",
+      "  }",
+      "}",
+      ""
+    ],
   }
 }
